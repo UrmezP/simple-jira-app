@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Jira App</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <h1>Simple Jira App</h1>
+    <main>
+      <button id="newProject">New Project</button>
+      <dialog id="newProjectDialog">
+        <form>
+          <div>
+            <label>Enter Title for New Project</label> <input type="text" />
+          </div>
+          <div>
+            <label>Enter Duration in days for New Project&nbsp;&nbsp;</label>
+            <input type="number" />
+          </div>
+          <input type="submit" value="Add" />
+        </form>
+      </dialog>
+      <hr />
+      <script>
+        function allowDrop(ev) {
+          ev.preventDefault();
+        }
+
+        function drop(ev, _this) {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("text");
+          console.dir(data);
+          _this.appendChild(document.getElementById(data));
+        }
+      </script>
+      <section id="projectFlow">
+        <div ondrop="drop(event, this)" ondragover="allowDrop(event)">
+          <h2>New</h2>
+        </div>
+        <div ondrop="drop(event, this)" ondragover="allowDrop(event)">
+          <h2>In Progress</h2>
+        </div>
+        <div ondrop="drop(event, this)" ondragover="allowDrop(event)">
+          <h2>Completed</h2>
+        </div>
+        <div ondrop="drop(event, this)" ondragover="allowDrop(event)">
+          <h2>Archived</h2>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

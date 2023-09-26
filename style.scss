@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto";
+}
+body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem 0 2rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 100%;
+}
+
+h1 {
+  padding: 3rem 0 2rem 0rem;
+}
+
+#newProject {
+  width: 150px;
+  margin-bottom: 2rem;
+  padding: 1rem 2rem;
+}
+
+#newProjectDialog {
+  margin: auto auto;
+  padding: 2rem 3em;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+    div {
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+    input {
+      float: right;
+      min-width: 250px;
+    }
+    input[type="submit"] {
+      padding: 1rem 1rem;
+    }
+  }
+}
+
+#projectFlow {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  > div {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
+    > h2 {
+      font-size: 1rem;
+      font-weight: normal;
+      margin: 1rem 0;
+    }
+    > article {
+      background-color: white;
+      position: relative;
+      box-shadow: 0 3px 4px rgba(0, 0, 0, 0.3);
+      margin: 1rem 0 0 0;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+
+      h3 {
+        font-size: 26px;
+      }
+      span {
+        font-size: 14px;
+        color: #353535;
+      }
+
+      ::after {
+        content: "📃";
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        font-size: 1.3rem;
+      }
+    }
+  }
+  div:nth-child(1) {
+    background-color: white;
+  }
+  div:nth-child(2) {
+    background-color: azure;
+  }
+  div:nth-child(3) {
+    background-color: bisque;
+  }
+  div:nth-child(4) {
+    background-color: cadetblue;
+  }
+}
