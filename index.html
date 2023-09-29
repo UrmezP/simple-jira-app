@@ -8,9 +8,14 @@
     <script defer src="script.js"></script>
   </head>
   <body>
-    <h1>Simple Jira App</h1>
+    <nav>
+      <h1><span>K</span>Kanban Board</h1>
+      <div>
+        <button id="newProject">New Project</button>
+        <button id="reset">Reset Board</button>
+      </div>
+    </nav>
     <main>
-      <button id="newProject">New Project</button>
       <dialog id="newProjectDialog">
         <form>
           <div>
@@ -23,7 +28,6 @@
           <input type="submit" value="Add" />
         </form>
       </dialog>
-      <hr />
       <script>
         function allowDrop(ev) {
           ev.preventDefault();
@@ -32,22 +36,31 @@
         function drop(ev, _this) {
           ev.preventDefault();
           var data = ev.dataTransfer.getData("text");
-          console.dir(data);
           _this.appendChild(document.getElementById(data));
+          updateFlowState(data, _this.id);
         }
       </script>
+      <h2>Kanban Board - Project Tracker</h2>
       <section id="projectFlow">
-        <div ondrop="drop(event, this)" ondragover="allowDrop(event)">
-          <h2>New</h2>
+        <div id="TODO" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+          <h2>To do</h2>
         </div>
-        <div ondrop="drop(event, this)" ondragover="allowDrop(event)">
+        <div
+          id="INPROGRESS"
+          ondrop="drop(event, this)"
+          ondragover="allowDrop(event)"
+        >
           <h2>In Progress</h2>
         </div>
-        <div ondrop="drop(event, this)" ondragover="allowDrop(event)">
-          <h2>Completed</h2>
+        <div
+          id="INREVIEW"
+          ondrop="drop(event, this)"
+          ondragover="allowDrop(event)"
+        >
+          <h2>In Review</h2>
         </div>
-        <div ondrop="drop(event, this)" ondragover="allowDrop(event)">
-          <h2>Archived</h2>
+        <div id="DONE" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+          <h2>Done</h2>
         </div>
       </section>
     </main>
